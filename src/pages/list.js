@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Data, img} from '../constants/constants';
+import {img} from '../constants/constants';
 
 const List = ({navigation}) => {
   const [data, setData] = React.useState([]);
@@ -35,7 +35,7 @@ const List = ({navigation}) => {
   };
   const Search = () => {
     if (search) {
-      const newData = Data.filter(function (item) {
+      const newData = data.filter(function (item) {
         // Applying filter for the inserted text in search bar
         const itemData = item.name ? item.name.toUpperCase() : ''.toUpperCase();
         const textData = search.toUpperCase();
@@ -43,7 +43,7 @@ const List = ({navigation}) => {
       });
       setData(newData);
     } else {
-      setData(Data);
+      fetchData();
       setS('');
     }
   };
@@ -68,7 +68,6 @@ const List = ({navigation}) => {
         <TextInput
           value={search}
           onSubmitEditing={() => Search()}
-          returnKeyLabel="search"
           placeholder="search"
           onChangeText={text => {
             setS(text);

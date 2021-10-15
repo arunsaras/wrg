@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, ScrollView} from 'react-native';
 import Textfield from '../components/textfield';
 import {img} from '../constants/constants';
 
@@ -8,7 +8,7 @@ export default function ViewDetails({route}) {
   var a = {...data.company};
 
   return (
-    <View style={{flex: 1, backgroundColor: '#ffffff'}}>
+    <ScrollView style={{flex: 1, backgroundColor: '#ffffff'}}>
       <View
         style={{
           marginTop: 20,
@@ -23,7 +23,7 @@ export default function ViewDetails({route}) {
           }
         />
       </View>
-      <View style={{paddingHorizontal: 20, marginTop: 40}}>
+      <View style={{paddingHorizontal: 20, marginTop: 40,marginBottom:20}}>
         {data.name != null && <Textfield label={'Name'} value={data.name} />}
         {data.username != null && (
           <Textfield label={'User Name'} value={data.username} />
@@ -44,6 +44,6 @@ export default function ViewDetails({route}) {
         )}
         {data.company != null && <Textfield label={'BS'} value={a.bs} />}
       </View>
-    </View>
+    </ScrollView>
   );
 }
