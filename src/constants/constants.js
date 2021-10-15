@@ -1,4 +1,4 @@
 export const img = {
-  imgDef: require('../assets/download.jpg'),
+  imgDef: require('../assets/user.jpg'),
   imgEmp: require('../assets/download.png'),
 };
